@@ -16,20 +16,19 @@ public class Car {
 
     private int modelYear, price;
 
-    @Column(name = "explanation", nullable = false, length = 512)
-    private String description;
+//    @Column(name = "explanation", nullable = false, length = 512)
+//    private String description;
 
     public Car() {
     }
 
-    public Car(String brand, String model, String color, String registrationNumber, int modelYear, int price, String description) {
+    public Car(String brand, String model, String color, String registrationNumber, int modelYear, int price) {
         this.brand = brand;
         this.model = model;
         this.color = color;
         this.registrationNumber = registrationNumber;
         this.modelYear = modelYear;
         this.price = price;
-        this.description = description;
     }
 
     public Long getId() {
@@ -82,13 +81,5 @@ public class Car {
 
     public void setPrice(int price) {
         this.price = price;
-    }
-
-    public String getDescription() {
-        return description;
-    }
-
-    public void setDescription(String description) {
-        this.description = description;
     }
 }
