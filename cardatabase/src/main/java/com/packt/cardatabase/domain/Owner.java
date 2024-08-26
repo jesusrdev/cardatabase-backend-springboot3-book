@@ -28,6 +28,11 @@ public class Owner {
 
 
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+//    @ManyToMany(cascade = CascadeType.PERSIST)
+//    @JoinTable(name = "car_owner",
+//            joinColumns = {@JoinColumn(name = "ownerid")},
+//            inverseJoinColumns = {@JoinColumn(name = "id")}
+//    )
     private List<Car> cars;
 
     public List<Car> getCars() {
