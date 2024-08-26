@@ -1,9 +1,13 @@
 package com.packt.cardatabase.domain;
 
+import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
+import jakarta.persistence.OneToMany;
+
+import java.util.List;
 
 @Entity
 public class Owner {
@@ -20,6 +24,18 @@ public class Owner {
     public Owner(String firstname, String lastname) {
         this.firstname = firstname;
         this.lastname = lastname;
+    }
+
+
+    @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
+    private List<Car> cars;
+
+    public List<Car> getCars() {
+        return cars;
+    }
+
+    public void setCars(List<Car> cars) {
+        this.cars = cars;
     }
 
     public Long getOwnerid() {
