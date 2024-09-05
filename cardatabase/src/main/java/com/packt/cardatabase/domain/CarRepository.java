@@ -4,6 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
+// @RepositoryRestResource(path="vehicles") // To change the name of the endpoint of spring rest
 //*                                                 <Entity, id type>
 public interface CarRepository extends CrudRepository<Car, Long> {
 
