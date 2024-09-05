@@ -1,5 +1,7 @@
 package com.packt.cardatabase.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -10,6 +12,7 @@ import jakarta.persistence.OneToMany;
 import java.util.List;
 
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 public class Owner {
 
     @Id
@@ -27,12 +30,13 @@ public class Owner {
     }
 
 
+    //    @ManyToMany(cascade = CascadeType.PERSIST)
+    //    @JoinTable(name = "car_owner",
+    //            joinColumns = {@JoinColumn(name = "ownerid")},
+    //            inverseJoinColumns = {@JoinColumn(name = "id")}
+    //    )
+    @JsonIgnore
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "owner")
-//    @ManyToMany(cascade = CascadeType.PERSIST)
-//    @JoinTable(name = "car_owner",
-//            joinColumns = {@JoinColumn(name = "ownerid")},
-//            inverseJoinColumns = {@JoinColumn(name = "id")}
-//    )
     private List<Car> cars;
 
     public List<Car> getCars() {
