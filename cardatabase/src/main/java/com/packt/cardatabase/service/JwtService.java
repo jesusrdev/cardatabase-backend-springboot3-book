@@ -18,7 +18,7 @@ public class JwtService {
     // Generate secret key. Only for demonstration purposes.
     // In production, you should read it from the application
     // configuration.
-    static final Key key = Keys.secretKeyFor(SignatureAlgorithm.RS256);
+    static final Key key = Keys.secretKeyFor(SignatureAlgorithm.HS256);
 
     // Generate signet JWT token
     public String getToken(String username) {
